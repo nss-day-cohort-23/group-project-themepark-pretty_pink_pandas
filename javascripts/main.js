@@ -4,10 +4,13 @@ const $ = require('jquery');
 var moment = require('moment');
 require('handlebars');
 let factory = require('./factory');
-let timeNow = moment().format("HH");
+let timeNow = moment().format("HH:mm");
 
-factory.getData()
+let attractions = [];
+ factory.getData()
     .then((data) => {
-    });
-
-    console.log('time',timeNow);
+        for(let i = 0; i < data.length; i++) {  
+                   if (data[i].times !== undefined) {
+                       console.log("working", data[i].times);
+                 }}});
+                
