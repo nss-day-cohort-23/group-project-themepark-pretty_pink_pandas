@@ -38,6 +38,10 @@ module.exports = function(grunt){
         hbs: {
           files: ["./templates/**/*.hbs"],
           tasks: ["browserify"]
+        },
+        sass: {
+          files: ["sass/**/*.scss"],
+          tasks: ["sass"]
         }
       }
     });
