@@ -8,3 +8,4 @@ let controller = require('./controller');
 let view = require('./view');
 let timeNow = moment().format("hh:mmA");
 console.log(timeNow);
+

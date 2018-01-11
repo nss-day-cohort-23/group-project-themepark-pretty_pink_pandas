@@ -5,7 +5,7 @@ require('handlebars');
 let factory = require('./factory');
 
 let attractionTime = [];
-factory.getData()
+factory.getAttrData()
 .then((data) => {
     for(let i = 0; i < data.length; i++) {  
         if (data[i].times !== undefined) {
