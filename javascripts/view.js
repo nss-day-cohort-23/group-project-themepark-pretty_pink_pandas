@@ -26,8 +26,19 @@ if(event.target.className === "test"){
 
 });
     
-  
-
+let userInput = document.getElementById('input');
+userInput.addEventListener('keypress', (e)=>{
+    if(e.keyCode === 13){
+        factory.getAttrData()
+        .then((data)=>{
+            data.forEach(element =>{
+                if(element.name === userInput.value){
+                    console.log(element.area_id);
+                }
+            });
+        });
+    }
+});
 
 
 
