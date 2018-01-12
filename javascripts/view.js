@@ -10,7 +10,7 @@ $('#area1').click(function () {
     .then((data) =>{
         data.forEach(element => {
             if (element.area_id === 1){
-                $('#output').append(`<div><h4 class="test"><a href="#">${element.name}</a></h4><div class="hidden">${element.description}${element.times}</div></div>`);
+                $('#output').append(`<div><h4 class="test"><a href="#">${element.name}(${element.type_id})</a></h4><div class="hidden">${element.description}${element.times}</div></div>`);
             }
           
         });
