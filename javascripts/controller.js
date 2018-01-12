@@ -10,7 +10,7 @@ factory.getAttrData()
     for(let i = 0; i < data.length; i++) {  
         if (data[i].times !== undefined) {
             attractionTime.push(data[i]);
-            console.log(data);
+            //console.log(data);
         }}
     });
         //console.log('new attraction array',attractionTime);
@@ -22,7 +22,7 @@ factory.getAreas()
 
 factory.getAttTypes()
 .then((type) => {
-    //console.log("types working", type);
+    console.log("types working", type);
 });
 
 factory.getInfo()

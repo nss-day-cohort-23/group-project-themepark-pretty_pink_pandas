@@ -86,11 +86,3 @@ module.exports.getAttractionData = ()=>{
     });
 };
 
-// module.exports.timeFilter = () => {
-//     return new Promise ( ( resolve, reject) => {
-//         $.ajax({
-//             url:
-//         })
-//     })
-// }
-
