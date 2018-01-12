@@ -10,21 +10,22 @@ factory.getAttrData()
     for(let i = 0; i < data.length; i++) {  
         if (data[i].times !== undefined) {
             attractionTime.push(data[i]);
+            console.log(data);
         }}
     });
-        console.log('new attraction array',attractionTime);
+        //console.log('new attraction array',attractionTime);
 
 factory.getAreas()
 .then ((areas) => {
-    console.log('areas working',areas);
+    //console.log('areas working',areas);
 });
 
 factory.getAttTypes()
 .then((type) => {
-    console.log("types working", type);
+    //console.log("types working", type);
 });
 
 factory.getInfo()
 .then((info) => {
-    console.log('info working', info);
+    //console.log('info working', info);
 });
