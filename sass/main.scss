@@ -1,36 +1,61 @@
+// NAV BAR SECTION
+// main container for navbar section of page
 #navbar{
+    display: grid;
+    grid-template-columns: repeat(5, 20%);
+    grid-template-rows: repeat(2, 50%);
     border: 1px solid black;
     padding: 5px;
     margin: 5px;
 }
 
+#input{
+    grid-column: 5;
+    grid-row: 2;
+    border: 1px solid black;
+    margin-right: .3rem;
+    padding: .2rem;
+}
+
+
+// MAIN CONTAINER SECTION
+// main grid for the webpage. 3 columns wide. 3 columns tall.
 #mainContainer {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    grid-auto-rows: minmax(100px, auto);
-    border: 1px solid black 
+    grid-template-columns: repeat(3, 33.33%);
+    grid-template-rows: repeat(3, 33.33%);
+    border: 1px solid black ;
+    height:75vh;
+    
 } 
 
+
+
+// LEFT BAR SECTION
 #leftHandContainer{
+    overflow-y: scroll;
     grid-column: 1;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
     border: 1px solid blue;
 }
+// class to toggle descriptions when area is clicked on
+.hidden {
+    display: none;
+}
 
+
+
+//  AREAS OF THE PARK SECTION
+// main container for the areas section of page
 #areasContainer{
     display: grid;
-    grid-column: 2 / 4;
-    grid-row:  1 / 2;
+    justify-content: center;
+    grid-column: 2 / 5;
+    grid-row:  1 / 3;
     border: 1px solid black
-}
+} 
 
-#bottomContainer{
-    grid-column: 2 /4;
-    grid-row: 2 / 3;
-    border: 1px solid black;
-}
-
+// class for areas
 .area{
     display: grid;
     grid-column: 1 /3;
@@ -41,6 +66,7 @@
     width: 4rem;
 }
 
+// ID's for individual areas. set up with corresponding column and row
 #area1{
     grid-column: 1;
     grid-row: 1;
@@ -82,7 +108,4 @@
     display: none;
 }
 
-.red {
-    background: red;
-    display: none;
-}
+
