@@ -9,3 +9,14 @@ let view = require('./view');
 
 let timeNow = moment().format("hh:mmA");
 console.log(timeNow);
+
+// on load set hex value as color for corresponding area
+$(document).ready(()=>{
+    factory.getAreas()
+    .then((data)=>{
+        data.forEach(element=>{
+            let areaDivs = $('div.areasContainer>div');
+            areaDivs.css('background', `#${element.colorTheme}`);
+        });
+    });
+});
