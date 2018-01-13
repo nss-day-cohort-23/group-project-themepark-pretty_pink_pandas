@@ -15,8 +15,9 @@ $(document).ready(()=>{
     factory.getAreas()
     .then((data)=>{
         data.forEach(element=>{
-            let areaDivs = $('div.areasContainer>div');
-            areaDivs.css('background', `#${element.colorTheme}`);
+            let areaDiv = $(`#area${element.id}`);
+            console.log(areaDiv);
+            areaDiv.css('background', `#${element.colorTheme}`);
         });
     });
 });
