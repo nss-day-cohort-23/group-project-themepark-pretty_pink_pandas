@@ -1,54 +1,54 @@
 module.exports = function(grunt){
   
-    grunt.initConfig({
-      browserify: {
+  grunt.initConfig({
+    browserify: {
+      files: {
+          src: "./javascripts/main.js",
+          dest: "./dist/app.js"
+        },
+    options: {
+      transform: ["hbsfy"]
+    }
+  },
+    jshint: {
+      files: ['javascripts/**/*.js'],
+    options: {
+      predef: ['document', 'console'],
+      esnext: true,
+      globalstrict: true,
+      globals: {},
+      browserify: true
+      }
+    }, 
+    sass: {
+      dist: {
         files: {
-            src: "./javascripts/main.js",
-            dest: "./dist/app.js"
-          },
-      options: {
-        transform: ["hbsfy"]
-      }
-    },
-      jshint: {
-        files: ['javascripts/**/*.js'],
-      options: {
-        predef: ['document', 'console'],
-        esnext: true,
-        globalstrict: true,
-        globals: {},
-        browserify: true
+          'stylesheets/main.css':'sass/main.scss'
         }
-      }, 
+      }
+    }, 
+    watch: {
+      options: {
+        reload: true
+      },
+      javascripts: {
+        files: ["./javascripts/**/*.js"],
+        tasks: ["jshint", "browserify"]
+      },
+      hbs: {
+        files: ["./templates/**/*.hbs"],
+        tasks: ["browserify"]
+      },
       sass: {
-        dist: {
-          files: {
-            'stylesheets/main.css':'sass/main.scss'
-          }
-        }
-      }, 
-      watch: {
-        options: {
-          reload: true
-        },
-        javascripts: {
-          files: ["./javascripts/**/*.js"],
-          tasks: ["jshint", "browserify"]
-        },
-        hbs: {
-          files: ["./templates/**/*.hbs"],
-          tasks: ["browserify"]
-        },
-        sass: {
-          files: ["sass/**/*.scss"],
-          tasks: ["sass"]
-        }
+        files: ["sass/**/*.scss"],
+        tasks: ["sass"]
       }
-    });
-  
-    require('matchdep')
-      .filter('grunt-*')
-      .forEach(grunt.loadNpmTasks);
-  
-    grunt.registerTask('default', ['jshint', 'sass', 'browserify', 'watch']);
-  }
+    }
+  });
+
+  require('matchdep')
+    .filter('grunt-*')
+    .forEach(grunt.loadNpmTasks);
+
+  grunt.registerTask('default', ['jshint', 'sass', 'browserify', 'watch']);
+}

@@ -91,10 +91,27 @@ $('#area7').click(function () {
     });
 });
 
-$(document).on("click", ".test", function(){
-    $(this).next().slideToggle();
+
+//  $(document).on("click", ".test", function(){
+//      if ($(this).next().slideToggle()){
+//      $(this).prev().hidden();}
+//  });
+
+$(document).on( 'click', ' .accordion h4', function() {
+
+    let isOpen = $(this).next( 'div').is(':visible');
     
-});
+    $( ' .accordion h4 + div' ).slideUp();
+  
+    if ( ! isOpen ) {
+      $( this ).next().stop().slideDown();
+    }
+    
+  });
+
+
+
+
 
 
 
