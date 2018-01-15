@@ -4,6 +4,9 @@ const $ = require('jquery');
 require('handlebars');
 let factory = require('./factory');
 let attrHBS = require('../templates/attractions.hbs');
+let footerHBS = require('../templates/footer.hbs');
+let moment = require('moment');
+
 
 $('#area1').click(function () {
     $('#output').empty();
@@ -96,5 +99,11 @@ $(document).on("click", ".test", function(){
     
 });
 
-
-
+// this function sets the date data from moments into an obj so that it can be used in a HBS template
+module.exports.copyrightFooter = () => {
+    let copyrightDate = {
+        "year": moment().format("YYYY"),
+        "date": moment().format("MMM Do, YYYY,")
+    };
+    $("#footer").append(footerHBS(copyrightDate));
+};
