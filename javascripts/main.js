@@ -6,9 +6,10 @@ require('handlebars');
 let factory = require('./factory');
 let controller = require('./controller');
 let view = require('./view');
+let timeLoad = require('./timeLoad');
 
-let timeNow = moment().format("hh:mmA");
-console.log(timeNow);
+// let timeNow = moment().format("h:A");
+// console.log(timeNow);
 
 // on load set hex value as color for corresponding area
 $(document).ready(()=>{
@@ -24,3 +25,4 @@ $(document).ready(()=>{
 
 // on load, HBS loads copyright year and current date
 view.copyrightFooter();
+timeLoad.timeLoad();
