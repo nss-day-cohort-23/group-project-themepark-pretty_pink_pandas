@@ -16,7 +16,7 @@ $(document).ready(()=>{
     factory.getAreas()
     .then((data)=>{
         data.forEach(element=>{
-            let areaDiv = $(`#area${element.id}`);
+            let areaDiv = $(`#a${element.id}`);
             console.log(areaDiv);
             areaDiv.css('background', `#${element.colorTheme}`);
         });
