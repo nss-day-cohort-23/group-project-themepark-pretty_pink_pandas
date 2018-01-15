@@ -21,3 +21,6 @@ $(document).ready(()=>{
         });
     });
 });
+
+// on load, HBS loads copyright year and current date
+view.copyrightFooter();
