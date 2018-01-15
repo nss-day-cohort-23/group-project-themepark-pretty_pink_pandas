@@ -103,7 +103,7 @@ $(document).on("click", ".test", function(){
 module.exports.copyrightFooter = () => {
     let copyrightDate = {
         "year": moment().format("YYYY"),
-        "date": moment().format("MMM Do, YYYY,")
+        "date": moment().format("MMM Do, YYYY")
     };
     $("#footer").append(footerHBS(copyrightDate));
 };
