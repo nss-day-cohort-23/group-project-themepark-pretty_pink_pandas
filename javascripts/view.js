@@ -8,108 +8,40 @@ let footerHBS = require('../templates/footer.hbs');
 let moment = require('moment');
 
 
-$('#area1').click(function () {
+const getType = (attraction, arrOfTypes) => {
+    for (let i=0; i < arrOfTypes.length; i++) {
+        if (attraction.type_id === arrOfTypes[i].id) {
+            return arrOfTypes[i].name;
+        }
+    }
+};
+
+$('.area').click(function () {
     $('#output').empty();
-    factory.getAttrData()
-    .then((data) =>{
-        data.forEach(element => {
-            if (element.area_id === 1){
-                $('#output').append(attrHBS(element));
+    console.log(event);
+    console.log(event.target.id);
+    let theIdINeed = event.target.id;
+
+    let p1 = factory.getAttrData();
+    let p2 = factory.getAttTypes();
+    Promise.all([p1,p2])
+    .then((data) =>{ console.log(data);
+        data[0].forEach(attraction => {
+            if ('a'+attraction.area_id === theIdINeed){
+                attraction.type = getType(attraction, data[1]);
+                $('#output').append(attrHBS(attraction));
             }
             
         });
     });
 });
-
-$('#area2').click(function () {
-    $('#output').empty();
-    factory.getAttrData()
-    .then((data) =>{
-        data.forEach(element => {
-            if (element.area_id === 2){
-                $('#output').append(attrHBS(element));            }
-            
-        });
-    });
-});
-
-$('#area3').click(function () {
-    $('#output').empty();
-    factory.getAttrData()
-    .then((data) =>{
-        data.forEach(element => {
-            if (element.area_id === 3){
-                $('#output').append(attrHBS(element));           
-            }
-            
-        });
-    });
-});
-
-$('#area4').click(function () {
-    $('#output').empty();
-    factory.getAttrData()
-    .then((data) =>{
-        data.forEach(element => {
-            if (element.area_id === 4){
-                $('#output').append(attrHBS(element));            }
-            
-        });
-    });
-});
-
-$('#area5').click(function () {
-    $('#output').empty();
-    factory.getAttrData()
-    .then((data) =>{
-        data.forEach(element => {
-            if (element.area_id === 5){
-                $('#output').append(attrHBS(element));            }
-            
-        });
-    });
-});
-
-$('#area6').click(function () {
-    $('#output').empty();
-    factory.getAttrData()
-    .then((data) =>{
-        data.forEach(element => {
-            if (element.area_id === 6){
-                $('#output').append(attrHBS(element));            }
-            
-        });
-    });
-});
-
-$('#area7').click(function () {
-    $('#output').empty();
-    factory.getAttrData()
-    .then((data) =>{
-        data.forEach(element => {
-            if (element.area_id === 7){
-                $('#output').append(attrHBS(element));            }
-            
-        });
-    });
-});
-
-
-//  $(document).on("click", ".test", function(){
-//      if ($(this).next().slideToggle()){
-//      $(this).prev().hidden();}
-//  });
 
 $(document).on( 'click', ' .accordion h4', function() {
-
     let isOpen = $(this).next( 'div').is(':visible');
-    
     $( ' .accordion h4 + div' ).slideUp();
-  
     if ( ! isOpen ) {
       $( this ).next().stop().slideDown();
-    }
-    
+    } 
   });
 
 
