@@ -1,3 +1,5 @@
+
+
 "use strict";
 
 const $ = require('jquery');
@@ -6,6 +8,7 @@ require('handlebars');
 let factory = require('./factory');
 let controller = require('./controller');
 let view = require('./view');
+let search = require('./search');
 
 let timeNow = moment().format("hh:mmA");
 console.log(timeNow);
@@ -24,3 +27,5 @@ $(document).ready(()=>{
 
 // on load, HBS loads copyright year and current date
 view.copyrightFooter();
+
+search.searchMeOfficer();
