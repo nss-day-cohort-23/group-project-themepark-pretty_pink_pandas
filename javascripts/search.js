@@ -3,27 +3,32 @@
 const $ = require('jquery');
 require('handlebars');
 let factory = require('./factory');
+let attrHBS = require('../templates/attractions.hbs');
 
 
+// function to search events and attractions
 let input = $('#input');
 module.exports.searchMeOfficer= () => {
     input.keypress((e)=>{
         let search = input.val();
         let upperSearch = search.toUpperCase();
         let namesAndAreaIds= [];
+        // when enter is hit get the data
         if(e.keyCode === 13){
             factory.getAttrData() 
             .then((data)=>{
+                // loop through data and get just the list of attraction objects
                 data.forEach((element)=>{
+                    // if the attraction name includes what was in the search parameters, push to new array
                     if(element.name.toUpperCase().includes(upperSearch)){
-                        namesAndAreaIds.push(element);
+                        matchingData.push(element);
                     }
                 });
-                namesAndAreaIds.forEach((areas)=>{
+                // loop through matching data and apply border to matching areas as well as output attractions to DOM
+                matchingData.forEach((areas)=>{
                     let areaHighlight = $(`#a${areas.area_id}`);
-                    console.log('areas', areas.area_id );
-                    
                     areaHighlight.css('border', '10px solid');
+                    $('#output').append(attrHBS(areas));
                 });
             });
         }

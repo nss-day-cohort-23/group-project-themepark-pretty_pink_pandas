@@ -28,4 +28,5 @@ $(document).ready(()=>{
 // on load, HBS loads copyright year and current date
 view.copyrightFooter();
 
+// search function
 search.searchMeOfficer();
