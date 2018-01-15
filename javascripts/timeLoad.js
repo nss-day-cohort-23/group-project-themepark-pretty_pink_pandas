@@ -6,21 +6,37 @@ const factory = require('./factory');
 const attrHBS = require('../templates/attractions.hbs');
 
 
+
 let attractionTime = [];
 module.exports.timeLoad = () =>{
     factory.getAttrData()
     .then((data) => {
         for(let i = 0; i < data.length; i++) {  
             if (data[i].times !== undefined) {
-                attractionTime.push(data[i]);
-            }}
+                if (timeComparison(data[i].times)) {
+                    attractionTime.push(data[i]);
+                }
+            }
+        }
         let attrFilter = attractionTime.filter(attraction => {
             if (attraction.hasOwnProperty("times")){
-                return attraction;
+                $('#output').append(attrHBS(attraction));
             }
         });
-        console.log("test", attrFilter);
         
     });
     };
+// new function 
+// use moments() to get split at the ":"
+let timeComparison = (attractionTimeArray) => {
+    let currentHour = moment().format("h");
+    for (let i=0; i < attractionTimeArray.length; i++) {
+        let hour = attractionTimeArray[i].split(":")[0];
+        if (currentHour === hour) {
+            return true;
+        }
+    }
 
+    return false;
+
+};
