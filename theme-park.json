@@ -54,6 +54,12 @@
             "name": "Cinderlla Castle",
             "description": "Rising high in the sky at the end of Main Street, U.S.A., Cinderella Castle welcomes you to a magical world of fantasy and fun. The central icon of Walt Disney World Resort, the castle invites all who visit to celebrate in a place where dreams come true.",
             "colorTheme": "F2CF53"
+        },
+        {
+            "id": 8,
+            "name": "Adult Island",
+            "description": "Here, everyone gets lucky",
+            "colorTheme": "91C9D5"
         }
     ],
 "attractions": [
@@ -1000,7 +1006,17 @@
             "times": ["9:45PM"],
             "type_id": 8,
             "area_id": 7
+        },
+        {
+            "id": 132,
+            "name": "Lucky Lounge",
+            "description": "Try your luck",
+            "times": ["9:00AM", "10:00PM"],
+            "type_id": 8,
+            "area_id": 8
+
         }
+      
     ],
 "attraction_types":[
         {
