@@ -16,23 +16,25 @@ module.exports.timeLoad = () =>{
                 if (timeComparison(data[i].times)) {
                     attractionTime.push(data[i]);
                 }
+            } else {
+                attractionTime.push(data[i]);
             }
         }
-        let attrFilter = attractionTime.filter(attraction => {
-            if (attraction.hasOwnProperty("times")){
+        console.log("attr LengTH!", attractionTime.length);
+        attractionTime.forEach(attraction => {
                 $('#output').append(attrHBS(attraction));
             }
-        });
+        );
         
     });
     };
-// new function 
-// use moments() to get split at the ":"
+
 let timeComparison = (attractionTimeArray) => {
     let currentHour = moment().format("h");
+    let amPm = moment().format("A");
     for (let i=0; i < attractionTimeArray.length; i++) {
-        let hour = attractionTimeArray[i].split(":")[0];
-        if (currentHour === hour) {
+        let splitArray = attractionTimeArray[i].split(":");
+        if (currentHour === splitArray[0] && splitArray[1].includes(amPm)) {
             return true;
         }
     }
