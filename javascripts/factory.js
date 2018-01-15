@@ -6,7 +6,7 @@ require('handlebars');
 module.exports.getAttrData = () => {
     return new Promise((resolve, reject) => {
       $.ajax({
-        url: "https://themepark-5f773.firebaseio.com/themePark/-L2W7UdQhglpEtROZ12K/attractions.json"
+        url: "https://themepark-5f773.firebaseio.com/attractions.json"
       })
         .done(data => {
             
@@ -23,7 +23,7 @@ module.exports.getAttrData = () => {
   module.exports.getAreas = () => {
     return new Promise((resolve, reject) => {
         $.ajax({
-            url: "https://themepark-5f773.firebaseio.com/themePark/-L2W7UdQhglpEtROZ12K/areas.json"
+            url: "https://themepark-5f773.firebaseio.com/areas.json"
   
         })
         .done(areas => {
@@ -40,7 +40,7 @@ module.exports.getAttrData = () => {
   module.exports.getAttTypes = () => {
     return new Promise((resolve, reject) => {
         $.ajax({
-            url: "https://themepark-5f773.firebaseio.com/themePark/-L2W7UdQhglpEtROZ12K/attraction_types.json"
+            url: "https://themepark-5f773.firebaseio.com/attraction_types.json"
   
         })
         .done(type => {
@@ -57,7 +57,7 @@ module.exports.getAttrData = () => {
   module.exports.getInfo = () => {
     return new Promise((resolve, reject) => {
         $.ajax({
-        url: "https://themepark-5f773.firebaseio.com/themePark/-L2W7UdQhglpEtROZ12K/park-info.json"
+        url: "https://themepark-5f773.firebaseio.com/park-info.json"
   
         })
         .done(info => {
@@ -77,7 +77,7 @@ module.exports.getAttrData = () => {
 module.exports.getAttractionData = ()=>{
     return new Promise ((resolve, reject ) =>{
         $.ajax({
-            url:`https://themepark-5f773.firebaseio.com/themePark/-L2W7UdQhglpEtROZ12K/attractions.json`
+            url:`https://themepark-5f773.firebaseio.com/attractions.json`
         })
         .done(data=>{
             resolve(data);
