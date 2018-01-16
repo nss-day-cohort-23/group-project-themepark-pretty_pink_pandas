@@ -13,9 +13,7 @@ module.exports.timeLoad = () =>{
     controller.getType()
     // looping over the data and pushing attractions that are open this current hour as well as all day
     .then((data) => {
-        console.log("my data", data);
         for(let i = 0; i < data.length; i++) { 
-            console.log("looping data", data); 
             //this function (line 36) runs a for loop over our data with "times" then pushes data that equals the current hour and AM / PM
             if (data[i].times !== undefined) {
                 if (timeComparison(data[i].times)) {
