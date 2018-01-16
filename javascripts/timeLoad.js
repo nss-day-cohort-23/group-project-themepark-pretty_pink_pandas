@@ -4,16 +4,16 @@ const $ = require('jquery');
 const moment = require('moment');
 const factory = require('./factory');
 const attrHBS = require('../templates/attractions.hbs');
-
+const controller = require('./controller');
 
 // a function to get attractions that have Event Times from our Attraction Data
 let attractionTime = [];
 module.exports.timeLoad = () =>{
-    //getting the data its self
-    factory.getAttrData()
+    //getting the data from controller that has had types added
+    controller.getType()
     // looping over the data and pushing attractions that are open this current hour as well as all day
     .then((data) => {
-        for(let i = 0; i < data.length; i++) {  
+        for(let i = 0; i < data.length; i++) { 
             //this function (line 36) runs a for loop over our data with "times" then pushes data that equals the current hour and AM / PM
             if (data[i].times !== undefined) {
                 if (timeComparison(data[i].times)) {
