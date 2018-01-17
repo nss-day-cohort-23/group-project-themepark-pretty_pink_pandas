@@ -46,7 +46,42 @@ $(document).on( 'click', ' .accordion h4', function() {
 
 
 
+let input = $('#input');
 
+function searchMeOfficer(){
+    input.keypress((e)=>{
+        let search = input.val();
+        let upperSearch = search.toUpperCase();
+        let resultArr = [];
+        if(e.keyCode === 13){
+            factory.getAttrData() 
+            .then((data)=>{
+                data.forEach((element)=>{
+                    let attrUppercase = element.name.toUpperCase();
+                    let areaId = element.area_id;
+                    for(let i = 0; i < upperSearch.length; i++){
+                        resultArr.push(upperSearch);
+                        if(resultArr.indexOf(attrUppercase < -1)){
+                            console.log(attrUppercase);
+                        }
+                    }
+                });
+            });
+        }
+    });
+}
+
+searchMeOfficer();
+
+let arr = ['c','d','b'];
+let test = 'cba';
+let testArray = [];
+for(let i = 0; i < test.length;i ++){
+    testArray.push(test[i]);
+}
+if(testArray.indexOf(arr<-1)){
+    console.log(testArray);
+}
 
 // this function sets the date data from moments into an obj so that it can be used in a HBS template
 module.exports.copyrightFooter = () => {
