@@ -12,7 +12,7 @@ module.exports.searchMeOfficer= () => {
     input.keypress((e)=>{
         let search = input.val();
         let upperSearch = search.toUpperCase();
-        let namesAndAreaIds= [];
+        let matchingData= [];
         // when enter is hit get the data
         if(e.keyCode === 13){
             factory.getAttrData() 
