@@ -16,6 +16,7 @@ module.exports.searchMeOfficer= () => {
         let matchingData= [];
         // when enter is hit get the data
         if(e.keyCode === 13){
+            $('#output').empty();
             controller.getType() 
             .then((data)=>{
                 // loop through data and get just the list of attraction objects
@@ -29,7 +30,6 @@ module.exports.searchMeOfficer= () => {
                 matchingData.forEach((areas)=>{
                     let areaHighlight = $(`#a${areas.area_id}`);
                     areaHighlight.css('border', '10px solid');
-                    $('#output').empty();
                     $('#output').append(attrHBS(areas));
                 });
             });
