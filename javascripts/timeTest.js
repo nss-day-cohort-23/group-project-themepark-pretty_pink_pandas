@@ -18,7 +18,7 @@ $('#timeBtn').on('click',((e) => {
     let hourSelected = timeSplit[0];
     let morningOrEvening = timeSplit[0];
     $('#output').empty();
-    controller.getType()
+    controller.getLocation()
     .then((data) => {
         for(let i = 0; i < data.length; i++) { 
             if (data[i].times !== undefined) {
