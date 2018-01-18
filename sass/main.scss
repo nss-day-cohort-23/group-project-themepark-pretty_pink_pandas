@@ -24,6 +24,15 @@ body{
     margin-left: 5px;
 }
 #timeInput{
+    grid-column: 4;
+    grid-row: 10;
+    height: 20px;
+    position: relative;
+    bottom: 1.3rem;
+    margin-top: -3px;
+    margin-right: 5px;
+}
+#timeBtn{
     grid-column: 5;
     grid-row: 10;
     height: 20px;

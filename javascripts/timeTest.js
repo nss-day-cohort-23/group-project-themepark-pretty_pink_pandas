@@ -1,9 +1,9 @@
-// 'use strict';
+'use strict';
 
 const $ = require('jquery');
 const moment = require('moment');
 const factory = require('./factory');
-const attrHBS = require('../templates/attractions.hbs');
+const timeHBS = require('../templates/timesearch.hbs');
 let controller = require('./controller');
 
 
@@ -27,7 +27,7 @@ $('#timeBtn').on('click',((e) => {
                 }
         }}
         timesArray.forEach(attraction =>{
-            $('#output').append(attrHBS(attraction));
+            $('#output').append(timeHBS(attraction));
             console.log(attraction);
             }
          );
