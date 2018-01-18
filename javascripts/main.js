@@ -10,6 +10,7 @@ let controller = require('./controller');
 let view = require('./view');
 let timeLoad = require('./timeLoad');
 let search = require('./search');
+let timeTest = require('./timeTest');
 
 // let timeNow = moment().format("h:A");
 // console.log(timeNow);

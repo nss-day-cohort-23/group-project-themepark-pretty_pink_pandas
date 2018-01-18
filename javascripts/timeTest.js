@@ -1,20 +1,59 @@
-// 'use strict';
+'use strict';
 
-// const $ = require('jquery');
-// const moment = require('moment');
-// const factory = require('./factory');
-// const attrHBS = require('../templates/attractions.hbs');
+const $ = require('jquery');
+const moment = require('moment');
+const factory = require('./factory');
+const attrHBS = require('../templates/attractions.hbs');
+const controller = require('./controller');
 
 
 
-// // a function to get attractions that have Event Times from our Attraction Data
-// //getting the data its self
-// let timeSearch = $('#timeInput');
-// module.exports.timeFunc = () => {
-//     let timeTest = [];
-//     timeSearch.keypress((e)=>{
-//         if(e.keyCode === 13){
-//             timeSplit(timeSearch.val());
+// a function to get attractions that have Event Times from our Attraction Data
+//getting the data its self
+let searchValueArray = [];
+let finalAttractionsArray = [];
+let timeSearch = document.getElementById("timeInput");
+$('#timeBtn').click((e) => {
+    searchValueArray.push(timeSearch.value);
+    let timeSplit = searchValueArray[1].split(":");
+    let hourSelected = timeSplit[0];
+    let morningOrEvening = timeSplit[1];
+    controller.getType()
+    .then((data) => {
+        for(let i = 0; i < data.length; i++) { 
+            if (data[i].times !== undefined) {
+                if (timeValueCheck(data[i].times)) {
+                    finalAttractionsArray.push(data[i]);
+                }
+            else {
+                finalAttractionsArray.push(data[i]);
+            }
+        }}
+        finalAttractionsArray.forEach(attraction =>{
+            $('#output').append(attrHBS(attraction));
+            }
+         );
+        }
+    );
+});
+ 
+    
+    let timeValueCheck= (timesArray) => {
+        let timeSplit = searchValueArray[1].split(":");
+        let hourSelected = timeSplit[0];
+        let morningOrEvening = timeSplit[1];
+
+        for (let i=0; i < timesArray.length; i++) {
+            let splitArray = timesArray[i].split(":");
+            if (hourSelected === splitArray[0]){
+                return true;
+            }
+        }
+    
+        return false;
+    };
+            
+            
             
 //     factory.getAttrData()
 //     // looping over the data and pushing attractions that are open this current hour as well as all day
