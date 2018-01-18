@@ -50,3 +50,30 @@ module.exports.getType = (attrData) => {
         );
     });
     };
+module.exports.getLocation = (attrData) => {
+    //creating new Promise to load when used in other functions
+    return new Promise((resolve, reject) => {
+    //getting our data from two ajax calls, attractions and attraction types
+    let p1 = factory.getAttractionData();
+    let p2 = factory.getInfo();
+    // empty array to push data into once we have manipulated it
+    let newDataWithInfo = [];
+    //promise all to get both data types before using them.
+        Promise.all([p1,p2])
+        .then((attrData) => { 
+            // loop over the first array, all 132 attractions
+            attrData[0].forEach(allAttractions => {
+                // loop over second array, the 8 types
+                attrData[1].forEach(parkInfo => {
+                    // if statement to add the types to each attraction based on their type id!
+                            allAttractions.location = parkInfo.location;
+                            // pushes to the array on 32
+                            newDataWithInfo.push(allAttractions); 
+                        
+                    });
+                });
+                resolve(newDataWithInfo);
+            }
+        );
+    });
+    };

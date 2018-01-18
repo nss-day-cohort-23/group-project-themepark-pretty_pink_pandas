@@ -21,13 +21,26 @@ body{
     bottom: 1.4rem;
     height: 20px;
     margin-left: 5px;
+    margin-top: -3px;
+    margin-left: 5px;
 }
 #timeInput{
+    grid-column: 4;
+    grid-row: 10;
+    height: 20px;
+    position: relative;
+    bottom: 1.3rem;
+    margin-top: -3px;
+    margin-right: 5px;
+}
+#timeBtn{
     grid-column: 5;
     grid-row: 10;
     height: 20px;
     position: relative;
     bottom: 1.3rem;
+    margin-top: -3px;
+    margin-right: 5px;
 }
 #logo{
     font-family: Futura;
@@ -35,6 +48,7 @@ body{
     grid-column: 4 / 8 ;
     grid-row: 1;
     margin-bottom: 10px;
+    margin-top: -10px;
 
 }
 
@@ -45,7 +59,8 @@ body{
     height:40px;
     width: 40px;
     position: relative;
-    bottom: 1.7rem;
+    bottom: 2.3rem;
+    
 }
 #hey{
     grid-row: 10;
@@ -99,6 +114,7 @@ body{
     border: 1px solid darkorchid;
     border-radius: 10px;
     background-color: darkorchid;
+    overflow: auto;
 } 
 
 // class for areas
@@ -183,5 +199,10 @@ body{
   
   .accordion h4 + div {
     display: none;
+  }
+
+  p {
+      margin-bottom:-5px;
+      padding-top: 17px;
   }
 
