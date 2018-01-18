@@ -4,6 +4,7 @@ const $ = require('jquery');
 require('handlebars');
 let factory = require('./factory');
 let attrHBS = require('../templates/attractions.hbs');
+let controller = require('./controller');
 
 
 // function to search events and attractions
@@ -15,7 +16,7 @@ module.exports.searchMeOfficer= () => {
         let matchingData= [];
         // when enter is hit get the data
         if(e.keyCode === 13){
-            factory.getAttrData() 
+            controller.getType() 
             .then((data)=>{
                 // loop through data and get just the list of attraction objects
                 data.forEach((element)=>{
@@ -28,6 +29,7 @@ module.exports.searchMeOfficer= () => {
                 matchingData.forEach((areas)=>{
                     let areaHighlight = $(`#a${areas.area_id}`);
                     areaHighlight.css('border', '10px solid');
+                    $('#output').empty();
                     $('#output').append(attrHBS(areas));
                 });
             });
